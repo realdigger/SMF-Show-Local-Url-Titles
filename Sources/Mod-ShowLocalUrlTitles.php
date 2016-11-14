@@ -52,9 +52,9 @@ function addShowLocalUrlTitlesAdminSettings($return_config = false)
     $context['post_url'] = $scripturl . '?action=admin;area=modsettings;save;sa=show_local_url_titles';
 
     $config_vars = array(
-        array('check', 'ShowLocalUrlTitles_parsebbc'),
-        array('check', 'ShowLocalUrlTitles_posting'),
-        array('check', 'ShowLocalUrlTitles_autolink'),
+        array('check', 'ShowLocalUrlTitles_parsebbc', 'subtext' => $txt['ShowLocalUrlTitles_parsebbc_sub']),
+        array('check', 'ShowLocalUrlTitles_posting', 'subtext' => $txt['ShowLocalUrlTitles_posting_sub']),
+        array('check', 'ShowLocalUrlTitles_autolink', 'subtext' => $txt['ShowLocalUrlTitles_autolink_sub']),
         '',
         array(
             'message',
