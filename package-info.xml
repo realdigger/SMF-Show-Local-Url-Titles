@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info">
+    <!-- General information about the mod package -->
+    <id>LHVWB:ShowLocalUrlTitles</id>
+    <name>Show Local Url Titles</name>
+    <type>modification</type>
+    <version>2.1.0</version>
+
+    <install for="2.0 - 2.0.99">
+        <readme>README.md</readme>
+        <code>hooks.php</code>
+        <modification type="file">install.xml</modification>
+        <require-dir name="Sources" destination="$boarddir"/>
+        <require-dir name="Themes" destination="$boarddir"/>
+        <redirect url="?action=admin;area=modsettings;sa=show_local_url_titles"/>
+    </install>
+    <uninstall for="2.0 - 2.0.99">
+        <code>hooks.php</code>
+        <modification type="file" reverse="true">install.xml</modification>
+        <remove-file name="$sourcedir/Mod-ShowLocalUrlTitles.php"/>
+        <remove-file name="$sourcedir/Subs-ShowLocalUrlTitles.php"/>
+        <remove-dir name="$languagedir/ShowLocalUrlTitles"/>
+    </uninstall>
+</package-info>
