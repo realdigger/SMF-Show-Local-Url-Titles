@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
-<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
-	<id>LHVWB:ShowLocalUrlTitles</id>
-	<version>2.0.1</version>
-	<file name="$sourcedir/Subs.php">
-		<operation>
-			<search position="replace"><![CDATA[
+<modification xmlns="http://www.simplemachines.org/xml/modification">
+    <id>LHVWB:ShowLocalUrlTitles</id>
+    <version>2.0.1</version>
+    <file name="$sourcedir/Subs.php">
+        <operation>
+            <search position="replace"><![CDATA[
 	// Never show smileys for wireless clients.  More bytes, can't see it anyway :P.
 ]]></search>
-			<add><![CDATA[
+            <add><![CDATA[
 	// Load up the show local url title functions. The complicated loading method is there to stop errors on uninstallation.
 	global $sourcedir;
 	static $loaded_local_url_parser = false;
@@ -20,9 +20,9 @@
 
 	// Never show smileys for wireless clients.  More bytes, can't see it anyway :P.
 ]]></add>
-		</operation>
-		<operation>
-			<search position="replace"><![CDATA[
+        </operation>
+        <operation>
+            <search position="replace"><![CDATA[
 			array(
 				'tag' => 'url',
 				'type' => 'unparsed_content',
@@ -33,20 +33,8 @@
 						$data = \'http://\' . $data;
 				'),
 			),
-			array(
-				'tag' => 'url',
-				'type' => 'unparsed_equals',
-				'before' => '<a href="$1" class="bbc_link" target="_blank">',
-				'after' => '</a>',
-				'validate' => create_function('&$tag, &$data, $disabled', '
-					if (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
-						$data = \'http://\' . $data;
-				'),
-				'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
-				'disabled_after' => ' ($1)',
-			),
 ]]></search>
-			<add><![CDATA[
+            <add><![CDATA[
 			array(
 				'tag' => 'url',
 				'type' => 'unparsed_content',
@@ -57,21 +45,10 @@
 						$data = \'http://\' . $data;
 				'),
 			),
-			array(
-				'tag' => 'url',
-				'type' => 'unparsed_equals_content',
-				'content' => '<a href="$2" class="bbc_link" target="_blank">$1</a>',
-				'validate' => create_function('&$tag, &$data, $disabled', '
-					if (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
-						$data = \'http://\' . $data;
-				'),
-				'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
-				'disabled_after' => ' ($2)',
-			),
 ]]></add>
-		</operation>
-		<operation>
-			<search position="replace"><![CDATA[
+        </operation>
+        <operation>
+            <search position="replace"><![CDATA[
 			array(
 				'tag' => 'iurl',
 				'type' => 'unparsed_content',
@@ -82,22 +59,8 @@
 						$data = \'http://\' . $data;
 				'),
 			),
-			array(
-				'tag' => 'iurl',
-				'type' => 'unparsed_equals',
-				'before' => '<a href="$1" class="bbc_link">',
-				'after' => '</a>',
-				'validate' => create_function('&$tag, &$data, $disabled', '
-					if (substr($data, 0, 1) == \'#\')
-						$data = \'#post_\' . substr($data, 1);
-					elseif (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
-						$data = \'http://\' . $data;
-				'),
-				'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
-				'disabled_after' => ' ($1)',
-			),
 ]]></search>
-			<add><![CDATA[
+            <add><![CDATA[
 			array(
 				'tag' => 'iurl',
 				'type' => 'unparsed_content',
@@ -108,23 +71,10 @@
 						$data = \'http://\' . $data;
 				'),
 			),
-			array(
-				'tag' => 'iurl',
-				'type' => 'unparsed_equals_content',
-				'content' => '<a href="$2" class="bbc_link">$1</a>',
-				'validate' => create_function('&$tag, &$data, $disabled', '
-					if (substr($data, 0, 1) == \'#\')
-						$data = \'#post_\' . substr($data, 1);
-					elseif (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
-						$data = \'http://\' . $data;
-				'),
-				'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
-				'disabled_after' => ' ($2)',
-			),
 ]]></add>
-		</operation>
-		<operation>
-			<search position="replace"><![CDATA[
+        </operation>
+        <operation>
+            <search position="replace"><![CDATA[
 		// No type means 'parsed_content'.
 		if (!isset($tag['type']))
 		{
@@ -134,7 +84,7 @@
 			$pos += strlen($tag['before']) - 1 + 2;
 		}
 ]]></search>
-			<add><![CDATA[
+            <add><![CDATA[
 		// No type means 'parsed_content'.
 		if (!isset($tag['type']))
 		{
@@ -144,81 +94,49 @@
 			$pos += strlen($tag['before']) - 1 + 2;
 		}
 		// Handle urls/iurls for the Show Local Url Titles mod.
-		elseif(($tag['tag'] == 'url') || ($tag['tag'] == 'iurl'))
+		elseif((($tag['tag'] == 'url') || ($tag['tag'] == 'iurl')) && ($tag['type'] == 'unparsed_content'))
 		{
-			// First tag type for urls just has the one url.
-			if ($tag['type'] == 'unparsed_content')
-			{
-				$pos2 = stripos($message, '[/' . substr($message, $pos + 1, strlen($tag['tag'])) . ']', $pos1);
-				if ($pos2 === false)
-					continue;
+			$pos2 = stripos($message, '[/' . substr($message, $pos + 1, strlen($tag['tag'])) . ']', $pos1);
+			if ($pos2 === false)
+				continue;
 
-				$data = substr($message, $pos1, $pos2 - $pos1);
+			$data = substr($message, $pos1, $pos2 - $pos1);
 
-				if (isset($tag['validate']))
-					$tag['validate']($tag, $data, $disabled);
+			if (isset($tag['validate']))
+				$tag['validate']($tag, $data, $disabled);
 
-				// Run the url through the get_ShowUrlTitle() function?
-				if (!empty($modSettings['ShowLocalUrlTitles_parsebbc']))
-					$text = get_local_url_title($data);
-				else
-					$text = $data;
+			// Run the url through the get_ShowUrlTitle() function?
+			if (!empty($modSettings['ShowLocalUrlTitles_parsebbc']))
+				$text = get_local_url_title($data);
+			else
+				$text = $data;
 
-				$code = strtr($tag['content'], array('$2' => $text, '$1' => $data));
-				$message = substr($message, 0, $pos) . "\n" . $code . "\n" . substr($message, $pos2 + 3 + strlen($tag['tag']));
+			$code = strtr($tag['content'], array('$2' => $text, '$1' => $data));
+			$message = substr($message, 0, $pos) . "\n" . $code . "\n" . substr($message, $pos2 + 3 + strlen($tag['tag']));
 
-				$pos += strlen($code) - 1 + 2;
-				$last_pos = $pos + 1;
-			}
-			// Second tag type for urls can have a url value and a separate title.
-			elseif ($tag['type'] == 'unparsed_equals_content')
-			{
-				$quoted = false;
-				$pos2 = strpos($message, $quoted == false ? ']' : '&quot;]', $pos1);
-				if ($pos2 === false)
-					continue;
-				$pos3 = stripos($message, '[/' . substr($message, $pos + 1, strlen($tag['tag'])) . ']', $pos2);
-				if ($pos3 === false)
-					continue;
-
-				$data = array(
-					substr($message, $pos2 + ($quoted == false ? 1 : 7), $pos3 - ($pos2 + ($quoted == false ? 1 : 7))),
-					substr($message, $pos1, $pos2 - $pos1)
-				);
-
-				// Validation for my parking, please!
-				if (isset($tag['validate']))
-					$tag['validate']($tag, $data[1], $disabled);
-
-				// Run the url through the get_ShowUrlTitle() function, if we need to.
-				if (!empty($modSettings['ShowLocalUrlTitles_parsebbc'])	&& in_array($data[1], array(strtr($data[0], array('<br />' => '')), 'http://' . strtr($data[0], array('<br />' => '')))))
-					$data[0] = get_local_url_title($data[1]);
-
-				$code = strtr($tag['content'], array('$1' => $data[0], '$2' => $data[1]));
-				$message = substr($message, 0, $pos) . "\n" . $code . "\n" . substr($message, $pos3 + 3 + strlen($tag['tag']));
-				$pos += strlen($code) - 1 + 2;
-			}
+			$pos += strlen($code) - 1 + 2;
+			$last_pos = $pos + 1;
 		}
 ]]></add>
-		</operation>
-	</file>
-	<file name="$sourcedir/Subs-Post.php">
-		<operation>
-			<search position="replace"><![CDATA[
+        </operation>
+    </file>
+    <file name="$sourcedir/Subs-Post.php">
+        <operation>
+            <search position="replace"><![CDATA[
 	global $user_info, $modSettings, $smcFunc, $context;
 ]]></search>
-			<add><![CDATA[
+            <add><![CDATA[
 	global $user_info, $modSettings, $smcFunc, $context, $sourcedir;
 
 	// Load up the show local url title functions.
 	require_once($sourcedir . '/Subs-ShowLocalUrlTitles.php');
 ]]></add>
-		</operation>
-		<operation>
-			<search position="replace"><![CDATA[
+        </operation>
+        <operation>
+            <search position="replace"><![CDATA[
 			fixTags($parts[$i]);
 ]]></search>
-			<add><![CDATA[
+            <add><![CDATA[
 			fixTags($parts[$i]);
 
 			// Autolink urls?
@@ -232,6 +150,6 @@
 				$parts[$i] = preg_replace_callback('~\[iurl(=.*?)?\](.*?)\[/iurl\]~', 'get_local_iurl_title__callback', $parts[$i]);
 			}
 ]]></add>
-		</operation>
-	</file>
+        </operation>
+    </file>
 </modification>
