@@ -9,6 +9,7 @@ $txt['ShowLocalUrlTitles_heading'] = 'Settings for the Show Local Url Titles mod
 $txt['ShowLocalUrlTitles_parsebbc'] = 'Parse local url titles on message view? (not recommended)';
 $txt['ShowLocalUrlTitles_posting'] = 'Parse local url titles on message post? (recommended)';
 $txt['ShowLocalUrlTitles_autolink'] = 'Autolink urls on post? (required to parse autolinked urls on post)';
+$txt['ShowLocalUrlTitles_remove_re'] = 'Remove "Re:" from message titles';
 $txt['ShowLocalUrlTitles_parse_existing'] = 'Click here to parse the local url titles for all existing messages. (warning: this may take a while! backup your database first!)';
 $txt['ShowLocalUrlTitles_parse_existing_confirmation'] = 'Are you sure you want to parse all of the posts in your forum?\n\nThis process cannot be undone!\nMake sure that you have made a backup of your database!';
 

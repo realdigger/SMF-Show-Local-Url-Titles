@@ -55,12 +55,15 @@ function addShowLocalUrlTitlesAdminSettings($return_config = false)
         array('check', 'ShowLocalUrlTitles_parsebbc', 'subtext' => $txt['ShowLocalUrlTitles_parsebbc_sub']),
         array('check', 'ShowLocalUrlTitles_posting', 'subtext' => $txt['ShowLocalUrlTitles_posting_sub']),
         array('check', 'ShowLocalUrlTitles_autolink', 'subtext' => $txt['ShowLocalUrlTitles_autolink_sub']),
+        array('check', 'ShowLocalUrlTitles_remove_re'),
+        /*
         '',
         array(
             'message',
             'ShowLocalUrlTitles_parse_existing',
             'text_label' => '<a href="' . $scripturl . '?action=admin;area=modsettings;sa=parsetitles;' . $context['session_var'] . '=' . $context['session_id'] . '" onClick="return confirm(\'' . $txt['ShowLocalUrlTitles_parse_existing_confirmation'] . '\');">' . $txt['ShowLocalUrlTitles_parse_existing'] . '</a>'
         )
+        */
     );
 
     if ($return_config) {

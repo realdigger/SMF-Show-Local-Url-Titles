@@ -180,6 +180,11 @@ function get_local_url_title($url)
                 $cache_titles[$query_string] = $data['url_title'];
             }
 
+            // Remove "Re:" from message title?
+            if (!empty($modSettings['ShowLocalUrlTitles_remove_re']) && $query['index'] == 'id_msg') {
+                $data['url_title'] = str_replace('Re:', '', $data['url_title']);
+            }
+
             return $data['url_title'];
         }
     }
