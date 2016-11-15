@@ -88,22 +88,26 @@ function get_local_url_title($url)
 
     // Firstly strip the scripturl of 'www.' and 'http://'.
     $location = $scripturl;
-    if (substr($location, 0, 7) == 'http://') {
-        $location = substr($location, 7);
+    if (substr($location, 0, 8) == 'https://') {
+        $location = substr($location, 8);
+    } else {
+        if (substr($location, 0, 7) == 'http://') {
+            $location = substr($location, 7);
+        }
     }
     if (substr($location, 0, 4) == 'www.') {
         $location = substr($location, 4);
     }
 
     // Do we have a local url? If not, then just pass the url back.
-    if (!preg_match('/(http:\/\/)(www\.)?(' . addcslashes($location,
+    if (!preg_match('/(https?:\/\/)(www\.)?(' . addcslashes($location,
             '/`\=+*{},[]^$.-!') . ')(.)*$/i' . ($context['utf8'] ? 'u' : ''), $url, $match)
     ) {
         return $url;
     }
 
     // We only need the part after the boardurl for the message searching.
-    $after_url = substr($url, strlen($location) + 7 + (($match[2] == 'www.') ? 4 : 0));
+    $after_url = substr($url, strlen($location) + (($match[1] == 'https://') ? 8 : 7) + (($match[2] == 'www.') ? 4 : 0));
 
     // Make sure that its a valid local url, otherwise just pass the url back.
     if (!in_array(substr($after_url, 0, 1), array('/', '?'))) {
