@@ -67,7 +67,7 @@ function get_local_url_title($url)
             'index_type' => 'int',
         ),
         'u' => array(
-            'data' => '	member_name as url_title',
+            'data' => '	real_name as url_title',
             'tables' => '{db_prefix}members',
             'index' => 'id_member',
             'index_type' => 'int',
