@@ -1,8 +1,10 @@
-# SMF Show Local Url Titles mod
+# SMF Show Local Url Titles NG mod
+This is an updated and improved version of the original Show Local Url Titles mod by Nathaniel Baxter.  
 * **Original author:** Nathaniel Baxter
 * **Additional author:** digger
 * **License:** BSD
 * **Compatible with:** SMF 2.0
+* **Languages:** English, Russian
 
 ## Description
 This mod turns the boring Local/Internal URLs for Posts, Threads, Boards and User profile's into their actual titles so that your forums look better and more professional. Its very similar to a functionality from vB which does a similar thing. The mod has settings for parsing the titles on Posting and Page view, as well as a maintenance function that can convert the urls for each of your forum's existing posts.

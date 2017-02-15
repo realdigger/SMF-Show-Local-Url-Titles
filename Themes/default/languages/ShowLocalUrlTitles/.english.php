@@ -1,7 +1,7 @@
 <?php
 /**
- * @package Show Local Url Titles
- * Language strings for the Show Local Url Titles mod.
+ * @package Show Local Url Titles NG
+ * Language strings for the Show Local Url Titles NG mod.
  */
 
 $txt['ShowLocalUrlTitles_tab'] = 'Show Local Url Titles';

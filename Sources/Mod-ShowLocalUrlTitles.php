@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Show Local Url Titles
+ * @package Show Local Url Titles NG
  * @file Mod-ShowLocalUrlTitles.php
  * @author digger @ http://mysmf.ru
  */

@@ -2,8 +2,8 @@
 <!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
 <package-info xmlns="http://www.simplemachines.org/xml/package-info">
     <!-- General information about the mod package -->
-    <id>LHVWB:ShowLocalUrlTitles</id>
-    <name>Show Local Url Titles</name>
+    <id>digger:ShowLocalUrlTitlesNG</id>
+    <name>Show Local Url Titles NG</name>
     <type>modification</type>
     <version>2.1.3</version>
 
