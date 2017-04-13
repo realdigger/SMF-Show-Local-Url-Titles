@@ -1,6 +1,6 @@
 # SMF Show Local Url Titles NG mod
-This is an updated and improved version of the original Show Local Url Titles mod by Nathaniel Baxter.  
-* **Original author:** Nathaniel Baxter
+This is an updated and improved version of the original [Show Local Url Titles mod by Nathaniel Baxter](https://custom.simplemachines.org/mods/index.php?mod=1293).  
+* **Original mod author:** Nathaniel Baxter
 * **Additional author:** digger
 * **License:** BSD
 * **Compatible with:** SMF 2.0
@@ -21,25 +21,13 @@ Please note that you should always backup your database before using the "Click 
 
 The License for this mod should be contained within the mod package, in a text file called LICENSE.
 
-## Version Changes:
-   v2.0.1 - 21 June 2011:
-   Support for SMF 2.0 final. Minor fix required.
-   
-   v2.0 - 22 November 2010
-   Support added for SMF 2 RC4.
-   Support removed for all earlier versions of SMF, including the SMF 1.1.x branch.
-   Complete rewrite of the mod.
-   Added autolinking of urls on post.
-   Added parsing of url titles on post.
-   Added maintenance function to parse existing messages.
-   
-   v1.1
-   Minor bugfix, any bbc tags inside the url tags were not being parsed.
-   
-   v1.0
-   Original Mod release.
+## Installation  
+Download and install latest release tar.gz file from [releases page](https://github.com/realdigger/SMF-Show-Local-Url-Titles-NG/releases).
 
 ## Описание
 Мод добавляет к внутренним ссылкам форума анкоры с названиями сообщений/тем/разделов.
 
 Пример: Для этой ссылки (на свежеустановленном форуме): "www.yoursite.com/index.php?topic=1" добавится анкор "Welcome to SMF!".
+
+## Установка    
+Загрузите и установите файл tar.gz актуальной версии со [страницы загрузок](https://github.com/realdigger/SMF-Show-Local-Url-Titles-NG/releases).
