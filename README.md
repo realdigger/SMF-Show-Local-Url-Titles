@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/realdigger/SMF-Show-Local-Url-Titles-NG.svg?branch=master)](https://travis-ci.org/realdigger/SMF-Show-Local-Url-Titles-NG)
 # SMF Show Local Url Titles NG mod
 This is an updated and improved version of the original [Show Local Url Titles mod by Nathaniel Baxter](https://custom.simplemachines.org/mods/index.php?mod=1293).  
 * **Original mod author:** Nathaniel Baxter
